@@ -1,0 +1,15 @@
+{
+  "name": "ecommerce-microservices-root",
+  "version": "1.0.0",
+  "description": "Root workspace for e-commerce microservices application",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && npm install --prefix gateway && npm install --prefix services/user-service && npm install --prefix services/product-service && npm install --prefix services/order-service && npm install --prefix frontend",
+    "seed-products": "npm run seed --prefix services/product-service",
+    "dev": "concurrently \"npm run dev --prefix gateway\" \"npm run dev --prefix services/user-service\" \"npm run dev --prefix services/product-service\" \"npm run dev --prefix services/order-service\" \"npm run dev --prefix frontend\"",
+    "test": "concurrently \"npm run test --prefix gateway\" \"npm run test --prefix services/user-service\" \"npm run test --prefix services/product-service\" \"npm run test --prefix services/order-service\" \"npm run test --prefix frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
